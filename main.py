@@ -309,4 +309,23 @@
 # except TypeError:
 #     print("Не строка!")
 
-print("Добрый вечер!)")
+# print("Добрый вечер!)")
+
+import re
+
+print("\nЗадание №14")
+# Задание №14
+
+
+def validate_login(password):
+    return re.findall(r"^[A-Za-z0-9-@_]{6,18}$", password)
+
+
+text = input("Введите пароль: ")
+text2 = validate_login(text)
+if len(text2) == 0:
+    print("Пароль не прошёл проверку на соответствие!")
+else:
+    print(text2)
+
+
