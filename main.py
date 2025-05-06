@@ -328,27 +328,48 @@
 # else:
 #     print(text2)
 
-print("\nЗадание №15")
-# Задание №15
+# print("\nЗадание №15")
+# # Задание №15
+#
+#
+# def recurs(lst1):
+#     count = 0   # Счётчик
+#     if len(lst1) == 0:  # Базовый случай!
+#         return 0
+#     else:
+#         if lst1[0] < 0:
+#             count += 1
+#         return count + recurs(lst1[1:])  # Рекурсивный вызов
+#
+#
+# try:
+#     n = int(input("Введите количество чисел в списке: "))
+#     lst = [int(input("-> ")) for i in range(0, n)]
+#     print(lst)
+#     print("Количество отрицательных чисел: ", recurs(lst))
+# except TypeError:
+#     print("Ошибка! Не число!")
 
 
-def recurs(lst1):
-    count = 0   # Счётчик
-    if len(lst1) == 0:  # Базовый случай!
-        return 0
-    else:
-        if lst1[0] < 0:
-            count += 1
-        return count + recurs(lst1[1:])  # Рекурсивный вызов
+print("\nЗадание №16")
+# Задание №16
+
+f = open("revers.txt", "w")  # Создание файла
+f.write("Тест:\nЗамена строки в текстовом файла;\nизменить строку в списке;\nзаписать список в файл;\n")
+f.close()
+
+# print("Тест:\nЗамена строки в текстовом файла;\nизменить строку в списке;\nзаписать список в файл;\n\n")
 
 
-try:
-    n = int(input("Введите количество чисел в списке: "))
-    lst = [int(input("-> ")) for i in range(0, n)]
-    print("Количество отрицательных чисел: ", recurs(lst))
-except TypeError:
-    print("Ошибка! Не число!")
+f = open("revers.txt", "r")  # Режим чтения файла
+read_file = f.readlines()  # Представление в виде списка!
+print("Индексы начинаются с 0-го!", read_file)
+pos1 = int(input("Индекс заменяющей строки: "))
+pos2 = int(input("Индекс заменяемой строки: "))
+read_file[pos1], read_file[pos2] = read_file[pos2], read_file[pos1]  # Перестановка строк
+f.close()
 
-
-
+f = open("revers.txt", "w")  # Стереть предыдущие данные! Для изменения
+f.writelines(read_file)
+f.close()
 
