@@ -311,21 +311,44 @@
 
 # print("Добрый вечер!)")
 
-import re
+# import re
+#
+# print("\nЗадание №14")
+# # Задание №14
+#
+#
+# def validate_login(password):
+#     return re.findall(r"^[A-Za-z0-9-@_]{6,18}$", password)
+#
+#
+# text = input("Введите пароль: ")
+# text2 = validate_login(text)
+# if len(text2) == 0:
+#     print("Пароль не прошёл проверку на соответствие!")
+# else:
+#     print(text2)
 
-print("\nЗадание №14")
-# Задание №14
+print("\nЗадание №15")
+# Задание №15
 
 
-def validate_login(password):
-    return re.findall(r"^[A-Za-z0-9-@_]{6,18}$", password)
+def recurs(lst1):
+    count = 0   # Счётчик
+    if len(lst1) == 0:  # Базовый случай!
+        return 0
+    else:
+        if lst1[0] < 0:
+            count += 1
+        return count + recurs(lst1[1:])  # Рекурсивный вызов
 
 
-text = input("Введите пароль: ")
-text2 = validate_login(text)
-if len(text2) == 0:
-    print("Пароль не прошёл проверку на соответствие!")
-else:
-    print(text2)
+try:
+    n = int(input("Введите количество чисел в списке: "))
+    lst = [int(input("-> ")) for i in range(0, n)]
+    print("Количество отрицательных чисел: ", recurs(lst))
+except TypeError:
+    print("Ошибка! Не число!")
+
+
 
 
