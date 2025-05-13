@@ -351,25 +351,122 @@
 #     print("Ошибка! Не число!")
 
 
-print("\nЗадание №16")
-# Задание №16
+# print("\nЗадание №16")
+# # Задание №16
+#
+# f = open("revers.txt", "w")  # Создание файла
+# f.write("Тест:\nЗамена строки в текстовом файла;\nизменить строку в списке;\nзаписать список в файл;\n")
+# f.close()
+#
+# # print("Тест:\nЗамена строки в текстовом файла;\nизменить строку в списке;\nзаписать список в файл;\n\n")
+#
+#
+# f = open("revers.txt", "r")  # Режим чтения файла
+# read_file = f.readlines()  # Представление в виде списка!
+# print("Индексы начинаются с 0-го!", read_file)
+# pos1 = int(input("Индекс заменяющей строки: "))
+# pos2 = int(input("Индекс заменяемой строки: "))
+# read_file[pos1], read_file[pos2] = read_file[pos2], read_file[pos1]  # Перестановка строк
+# f.close()
+#
+# f = open("revers.txt", "w")  # Стереть предыдущие данные! Для изменения
+# f.writelines(read_file)
+# f.close()
 
-f = open("revers.txt", "w")  # Создание файла
-f.write("Тест:\nЗамена строки в текстовом файла;\nизменить строку в списке;\nзаписать список в файл;\n")
-f.close()
-
-# print("Тест:\nЗамена строки в текстовом файла;\nизменить строку в списке;\nзаписать список в файл;\n\n")
+print("\nЗадание №17")
+# Задание №17
 
 
-f = open("revers.txt", "r")  # Режим чтения файла
-read_file = f.readlines()  # Представление в виде списка!
-print("Индексы начинаются с 0-го!", read_file)
-pos1 = int(input("Индекс заменяющей строки: "))
-pos2 = int(input("Индекс заменяемой строки: "))
-read_file[pos1], read_file[pos2] = read_file[pos2], read_file[pos1]  # Перестановка строк
-f.close()
+class Car:
 
-f = open("revers.txt", "w")  # Стереть предыдущие данные! Для изменения
-f.writelines(read_file)
-f.close()
+    def __init__(self, model, year, author, power, color, price):  # Создание и инициализация закрытых свойств
+        self.__model = model
+        self.__year = year
+        self.__author = author
+        self.__power = power
+        self.__color = color
+        self.__price = price
+
+    @property  # геттер для закрытого свойства model! (Получить значение)
+    def model(self):
+        return self.__model
+
+    @model.setter  # сеттер для закрытого свойства model! (Установить значение)
+    def model(self, model1):
+        if isinstance(model1, str):
+            self.__model = model1
+        else:
+            print("Введите строку!")
+
+    @property  # геттер для закрытого свойства year! (Получить значение)
+    def year(self):
+        return self.__year
+
+    @year.setter  # сеттер для закрытого свойства year! (Установить значение)
+    def year(self,  year1):
+        if isinstance(year1, int):
+            self.__year = year1
+        else:
+            print("Введите число!")
+
+    @property  # геттер для закрытого свойства author! (Получить значение)
+    def author(self):
+        return self.__model
+
+    @author.setter  # сеттер для закрытого свойства author! (Установить значение)
+    def author(self, author1):
+        if isinstance(author1, str):
+            self.__author = author1
+        else:
+            print("Введите строку!")
+
+    @property  # геттер для закрытого свойства power! (Получить значение)
+    def power(self):
+        return self.__power
+
+    @power.setter  # сеттер для закрытого свойства power! (Установить значение)
+    def power(self, power1):
+        if isinstance(power1, int):
+            self.__power = power1
+        else:
+            print("Введите число!")
+
+    @property  # геттер для закрытого свойства color! (Получить значение)
+    def color(self):
+        return self.__color
+
+    @color.setter  # сеттер для закрытого свойства color! (Установить значение)
+    def color(self, color1):
+        if isinstance(color1, str):
+            self.__color = color1
+        else:
+            print("Введите строку!")
+
+    @property  # геттер для закрытого свойства price! (Получить значение)
+    def price(self):
+        return self.__price
+
+    @price.setter  # сеттер для закрытого свойства price! (Установить значение)
+    def price(self, price1):
+        if isinstance(price1, int):
+            self.__price = price1
+        else:
+            print("Введите число!")
+
+    def print_info(self):  # Вывод структурной информации на экран
+        print("Данные автомобиля".center(40, "*"))
+        print(f"Название модели: {self.__model}\nГод выпуска: {self.__year}\nПроизводитель: {self.__author}"
+              f"\nМощность двигателя: {self.__power} л.с.\nЦвет машины: {self.__color}\nЦена: {self.__price}")
+        print("=" * 40)
+
+
+car1 = Car("X7 M50i", 2021, "BMW", 530, "white", 10790000)
+car1.print_info()
+car1.model = "ВАЗ 2106"
+car1.year = 2024
+car1.author = "Lada"
+car1.power = 200000
+car1.color = "black"
+car1.price = 120000
+car1.print_info()
 
