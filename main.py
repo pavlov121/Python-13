@@ -373,100 +373,276 @@
 # f.writelines(read_file)
 # f.close()
 
-print("\nЗадание №17")
-# Задание №17
+# print("\nЗадание №17")
+# # Задание №17
+#
+#
+# class Car:
+#
+#     def __init__(self, model, year, author, power, color, price):  # Создание и инициализация закрытых свойств
+#         self.__model = model
+#         self.__year = year
+#         self.__author = author
+#         self.__power = power
+#         self.__color = color
+#         self.__price = price
+#
+#     @property  # геттер для закрытого свойства model! (Получить значение)
+#     def model(self):
+#         return self.__model
+#
+#     @model.setter  # сеттер для закрытого свойства model! (Установить значение)
+#     def model(self, model1):
+#         if isinstance(model1, str):
+#             self.__model = model1
+#         else:
+#             print("Введите строку!")
+#
+#     @property  # геттер для закрытого свойства year! (Получить значение)
+#     def year(self):
+#         return self.__year
+#
+#     @year.setter  # сеттер для закрытого свойства year! (Установить значение)
+#     def year(self,  year1):
+#         if isinstance(year1, int):
+#             self.__year = year1
+#         else:
+#             print("Введите число!")
+#
+#     @property  # геттер для закрытого свойства author! (Получить значение)
+#     def author(self):
+#         return self.__model
+#
+#     @author.setter  # сеттер для закрытого свойства author! (Установить значение)
+#     def author(self, author1):
+#         if isinstance(author1, str):
+#             self.__author = author1
+#         else:
+#             print("Введите строку!")
+#
+#     @property  # геттер для закрытого свойства power! (Получить значение)
+#     def power(self):
+#         return self.__power
+#
+#     @power.setter  # сеттер для закрытого свойства power! (Установить значение)
+#     def power(self, power1):
+#         if isinstance(power1, int):
+#             self.__power = power1
+#         else:
+#             print("Введите число!")
+#
+#     @property  # геттер для закрытого свойства color! (Получить значение)
+#     def color(self):
+#         return self.__color
+#
+#     @color.setter  # сеттер для закрытого свойства color! (Установить значение)
+#     def color(self, color1):
+#         if isinstance(color1, str):
+#             self.__color = color1
+#         else:
+#             print("Введите строку!")
+#
+#     @property  # геттер для закрытого свойства price! (Получить значение)
+#     def price(self):
+#         return self.__price
+#
+#     @price.setter  # сеттер для закрытого свойства price! (Установить значение)
+#     def price(self, price1):
+#         if isinstance(price1, int):
+#             self.__price = price1
+#         else:
+#             print("Введите число!")
+#
+#     def print_info(self):  # Вывод структурной информации на экран
+#         print("Данные автомобиля".center(40, "*"))
+#         print(f"Название модели: {self.__model}\nГод выпуска: {self.__year}\nПроизводитель: {self.__author}"
+#               f"\nМощность двигателя: {self.__power} л.с.\nЦвет машины: {self.__color}\nЦена: {self.__price}")
+#         print("=" * 40)
+#
+#
+# car1 = Car("X7 M50i", 2021, "BMW", 530, "white", 10790000)
+# car1.print_info()
+# car1.model = "ВАЗ 2106"
+# car1.year = 2024
+# car1.author = "Lada"
+# car1.power = 200000
+# car1.color = "black"
+# car1.price = 120000
+# car1.print_info()
+
+# print("\nЗадание №18")
+# # Задание №18
+import math
 
 
-class Car:
+class Figure:
+    count = 0  # Счётчик(статическое свойство)
 
-    def __init__(self, model, year, author, power, color, price):  # Создание и инициализация закрытых свойств
-        self.__model = model
-        self.__year = year
-        self.__author = author
-        self.__power = power
-        self.__color = color
-        self.__price = price
+    def __init__(self, a, b, h):  # Инициализация стороны треугольника, прямоугольника, высоты(динамических свойств)
+        self.__a = a
+        self.__b = b
+        self.__h = h
 
-    @property  # геттер для закрытого свойства model! (Получить значение)
-    def model(self):
-        return self.__model
+    @staticmethod
+    def triangle_prim(a, h):  # Площадь прямоугольного треугольника
+        Figure.count += 1
+        print(f"Площадь прямоугольного треугольника ({a}, {h}) = {a * h}")
 
-    @model.setter  # сеттер для закрытого свойства model! (Установить значение)
-    def model(self, model1):
-        if isinstance(model1, str):
-            self.__model = model1
+    @staticmethod
+    def rectangle(a, b):  # Площадь прямоугольника
+        Figure.count += 1
+        print(f"Площадь прямоугольника ({a}, {b}) = {a * b}")
+
+    @staticmethod
+    def square(a):  # Площадь квадрата
+        Figure.count += 1
+        print(f"Площадь квадрата ({a}^2) = {a * a}")
+
+    @staticmethod
+    def shet_def() -> None:
+        print(f"Количество вызовов = {Figure.count}")
+
+    @property
+    def a(self):
+        return self.__a
+
+    @a.setter
+    def a(self, a):
+        if isinstance(a, int):
+            self.__a = a
         else:
-            print("Введите строку!")
+            raise TypeError("Ошибка типа!")
 
-    @property  # геттер для закрытого свойства year! (Получить значение)
-    def year(self):
-        return self.__year
+    @property
+    def b(self):
+        return self.__a
 
-    @year.setter  # сеттер для закрытого свойства year! (Установить значение)
-    def year(self,  year1):
-        if isinstance(year1, int):
-            self.__year = year1
+    @b.setter
+    def b(self, b):
+        if isinstance(b, int):
+            self.__b = b
         else:
-            print("Введите число!")
+            raise TypeError("Ошибка типа!")
 
-    @property  # геттер для закрытого свойства author! (Получить значение)
-    def author(self):
-        return self.__model
+    @property
+    def h(self):
+        return self.__a
 
-    @author.setter  # сеттер для закрытого свойства author! (Установить значение)
-    def author(self, author1):
-        if isinstance(author1, str):
-            self.__author = author1
+    @h.setter
+    def h(self, h):
+        if isinstance(h, int):
+            self.__h = h
         else:
-            print("Введите строку!")
-
-    @property  # геттер для закрытого свойства power! (Получить значение)
-    def power(self):
-        return self.__power
-
-    @power.setter  # сеттер для закрытого свойства power! (Установить значение)
-    def power(self, power1):
-        if isinstance(power1, int):
-            self.__power = power1
-        else:
-            print("Введите число!")
-
-    @property  # геттер для закрытого свойства color! (Получить значение)
-    def color(self):
-        return self.__color
-
-    @color.setter  # сеттер для закрытого свойства color! (Установить значение)
-    def color(self, color1):
-        if isinstance(color1, str):
-            self.__color = color1
-        else:
-            print("Введите строку!")
-
-    @property  # геттер для закрытого свойства price! (Получить значение)
-    def price(self):
-        return self.__price
-
-    @price.setter  # сеттер для закрытого свойства price! (Установить значение)
-    def price(self, price1):
-        if isinstance(price1, int):
-            self.__price = price1
-        else:
-            print("Введите число!")
-
-    def print_info(self):  # Вывод структурной информации на экран
-        print("Данные автомобиля".center(40, "*"))
-        print(f"Название модели: {self.__model}\nГод выпуска: {self.__year}\nПроизводитель: {self.__author}"
-              f"\nМощность двигателя: {self.__power} л.с.\nЦвет машины: {self.__color}\nЦена: {self.__price}")
-        print("=" * 40)
+            raise TypeError("Ошибка типа!")
 
 
-car1 = Car("X7 M50i", 2021, "BMW", 530, "white", 10790000)
-car1.print_info()
-car1.model = "ВАЗ 2106"
-car1.year = 2024
-car1.author = "Lada"
-car1.power = 200000
-car1.color = "black"
-car1.price = 120000
-car1.print_info()
+a1 = Figure(15, 12, 13)
+a1.rectangle(14, 15)
+a1.triangle_prim(15, 12)
+a1.square(2)
+a1.shet_def()
 
+# # Занятие 19
+# class Account:
+#     rate_usd = 0.013  # Курс рубля по отношению к доллару
+#     rate_eur = 0.011
+#     suffix = "RUB"
+#     suffix_usd = "USD"
+#     suffix_eur = "EUR"
+#
+#     def __init__(self, surname, num, percent, value):
+#         self.surname = surname
+#         self.num = num
+#         self.percent = percent
+#         self.value = value
+#         print(f"Счёт #{self.num} принадлежащий {self.surname} был открыт")
+#         print("*" * 50)
+#
+#     def __del__(self):
+#         print("*" * 50)
+#         print(f"Счёт #{self.num} принадлежащий {self.surname} был закрыт")
+#
+#     @staticmethod
+#     def convert(value, rate):
+#         return value * rate
+#
+#     @classmethod
+#     def set_usd_rate(cls, rate):  # rate - новый курс
+#         cls.rate_usd = rate  # Заменяем курс!
+#
+#     @classmethod
+#     def set_eur_rate(cls, rate):  # rate - новый курс
+#         cls.rate_eur = rate  # Заменяем курс!
+#
+#     def convert_to_usd(self):
+#         usd_val = Account.convert(self.value, Account.rate_usd)
+#         print(f"Состояние счёта: {usd_val} {Account.suffix_usd}")
+#
+#     def convert_to_eur(self):
+#         eur_val = Account.convert(self.value, Account.rate_eur)
+#         print(f"Состояние счёта: {eur_val} {Account.suffix_eur}")
+#
+#     def edit_owner(self, surname):
+#         self.surname = surname
+#
+#     def add_percent(self):
+#         self.value += self.value * self.percent
+#         print("Проценты были успешно начислены!")
+#         self.print_balance()
+#
+#     def withdraw_money(self, val):
+#         if val > self.value:
+#             print(f"К сожалению у вас нет {val} {Account.suffix}")
+#         else:
+#             self.value -= val
+#             print(f"{val} {Account.suffix} было успешно снято!")
+#
+#         self.print_balance()
+#
+#     def add_money(self, val):
+#         self.value += val
+#         print(f"{val} {Account.suffix} было успешно добавлено!")
+#         self.print_balance()
+#
+#     def print_balance(self):
+#         print(f"Текущий баланс {self.value} {Account.suffix}")
+#
+#     def print_info(self):
+#         print("Информация о счёте:")
+#         print("-" * 20)
+#         print(f"#{self.num}")
+#         print(f"Владелец: {self.surname}")
+#         self.print_balance()
+#         print(f"Проценты: {self.percent:.0%}")
+#         print("-" * 20)
+#
+#
+# acc = Account("Долгих", "12345", 0.03, 1000)
+# acc.print_info()
+# acc.convert_to_usd()
+# acc.convert_to_eur()
+# print()
+# Account.set_usd_rate(2)  # Меняем статическое свойство класса Account
+# Account.set_eur_rate(3)
+#
+# acc.convert_to_usd()
+# acc.convert_to_eur()
+# print()
+# acc.edit_owner("Дона")
+# acc.print_info()
+# print()
+#
+# acc.add_percent()
+# print()
+#
+# acc.withdraw_money(900)
+# print()
+#
+# acc.withdraw_money(200)
+# print()
+#
+# acc.add_money(5000)
+# print()
+#
+# acc.withdraw_money(3000)
+# print()
