@@ -470,79 +470,79 @@
 # car1.price = 120000
 # car1.print_info()
 
-# print("\nЗадание №18")
-# # Задание №18
-import math
+# # print("\nЗадание №18")
+# # # Задание №18
+# import math
+#
+#
+# class Figure:
+#     count = 0  # Счётчик(статическое свойство)
+#
+#     def __init__(self, a, b, h):  # Инициализация стороны треугольника, прямоугольника, высоты(динамических свойств)
+#         self.__a = a
+#         self.__b = b
+#         self.__h = h
+#
+#     @staticmethod
+#     def triangle_prim(a, h):  # Площадь прямоугольного треугольника
+#         Figure.count += 1
+#         print(f"Площадь прямоугольного треугольника ({a}, {h}) = {a * h}")
+#
+#     @staticmethod
+#     def rectangle(a, b):  # Площадь прямоугольника
+#         Figure.count += 1
+#         print(f"Площадь прямоугольника ({a}, {b}) = {a * b}")
+#
+#     @staticmethod
+#     def square(a):  # Площадь квадрата
+#         Figure.count += 1
+#         print(f"Площадь квадрата ({a}^2) = {a * a}")
+#
+#     @staticmethod
+#     def shet_def() -> None:
+#         print(f"Количество вызовов = {Figure.count}")
+#
+#     @property
+#     def a(self):
+#         return self.__a
+#
+#     @a.setter
+#     def a(self, a):
+#         if isinstance(a, int):
+#             self.__a = a
+#         else:
+#             raise TypeError("Ошибка типа!")
+#
+#     @property
+#     def b(self):
+#         return self.__a
+#
+#     @b.setter
+#     def b(self, b):
+#         if isinstance(b, int):
+#             self.__b = b
+#         else:
+#             raise TypeError("Ошибка типа!")
+#
+#     @property
+#     def h(self):
+#         return self.__a
+#
+#     @h.setter
+#     def h(self, h):
+#         if isinstance(h, int):
+#             self.__h = h
+#         else:
+#             raise TypeError("Ошибка типа!")
+#
+#
+# a1 = Figure(15, 12, 13)
+# a1.rectangle(14, 15)
+# a1.triangle_prim(15, 12)
+# a1.square(2)
+# a1.shet_def()
 
-
-class Figure:
-    count = 0  # Счётчик(статическое свойство)
-
-    def __init__(self, a, b, h):  # Инициализация стороны треугольника, прямоугольника, высоты(динамических свойств)
-        self.__a = a
-        self.__b = b
-        self.__h = h
-
-    @staticmethod
-    def triangle_prim(a, h):  # Площадь прямоугольного треугольника
-        Figure.count += 1
-        print(f"Площадь прямоугольного треугольника ({a}, {h}) = {a * h}")
-
-    @staticmethod
-    def rectangle(a, b):  # Площадь прямоугольника
-        Figure.count += 1
-        print(f"Площадь прямоугольника ({a}, {b}) = {a * b}")
-
-    @staticmethod
-    def square(a):  # Площадь квадрата
-        Figure.count += 1
-        print(f"Площадь квадрата ({a}^2) = {a * a}")
-
-    @staticmethod
-    def shet_def() -> None:
-        print(f"Количество вызовов = {Figure.count}")
-
-    @property
-    def a(self):
-        return self.__a
-
-    @a.setter
-    def a(self, a):
-        if isinstance(a, int):
-            self.__a = a
-        else:
-            raise TypeError("Ошибка типа!")
-
-    @property
-    def b(self):
-        return self.__a
-
-    @b.setter
-    def b(self, b):
-        if isinstance(b, int):
-            self.__b = b
-        else:
-            raise TypeError("Ошибка типа!")
-
-    @property
-    def h(self):
-        return self.__a
-
-    @h.setter
-    def h(self, h):
-        if isinstance(h, int):
-            self.__h = h
-        else:
-            raise TypeError("Ошибка типа!")
-
-
-a1 = Figure(15, 12, 13)
-a1.rectangle(14, 15)
-a1.triangle_prim(15, 12)
-a1.square(2)
-a1.shet_def()
-
-# # Занятие 19
+# Занятие 19
 # class Account:
 #     rate_usd = 0.013  # Курс рубля по отношению к доллару
 #     rate_eur = 0.011
@@ -561,6 +561,14 @@ a1.shet_def()
 #     def __del__(self):
 #         print("*" * 50)
 #         print(f"Счёт #{self.num} принадлежащий {self.surname} был закрыт")
+#
+#     @property
+#     def surname(self):
+#         return self.surname
+#
+#     @surname.setter
+#     def surname(self, surname):
+#         self.surname = surname
 #
 #     @staticmethod
 #     def convert(value, rate):
@@ -646,3 +654,45 @@ a1.shet_def()
 #
 # acc.withdraw_money(3000)
 # print()
+
+# print("\nЗадание №18")
+# # # Задание №18
+
+
+from abc import ABC, abstractmethod
+
+
+class Human(ABC):
+
+    @abstractmethod
+    def display1(self):
+        pass
+
+    @abstractmethod
+    def display2(self):
+        pass
+
+    @abstractmethod
+    def display3(self):
+        pass
+
+
+class Student(Human):  # Наследование от класса человек!
+
+    def display1(self):
+        print(f"Загидулин Линар 32 РПО PD_011 5\nШугани Сергей 15 РПО PD_011 5 Защита данных")
+
+
+class Teacher(Human):  # Наследование от класса человек!
+
+    def display2(self):
+        print(f"Даньшин Андрей 38 Астрофизика 110\n Башкиров Алексей 45 Разработка приложений 20")
+
+
+class Graduate(Student):  # Наследование от класса студент!
+
+    def display3(self):
+        print(f"Батодалаев Даши 16 ГК Web_011 5\nМаркин Даниил ГК Python_011 5")
+
+
+
