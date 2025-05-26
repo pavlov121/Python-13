@@ -655,44 +655,137 @@
 # acc.withdraw_money(3000)
 # print()
 
-# print("\nЗадание №18")
-# # # Задание №18
+# print("\nЗадание №20")
+# # # Задание №20
 
 
-from abc import ABC, abstractmethod
+# from abc import ABC, abstractmethod
+#
+#
+# class Human(ABC):
+#
+#     @abstractmethod
+#     def display1(self):
+#         pass
+#
+#     @abstractmethod
+#     def display2(self):
+#         pass
+#
+#     @abstractmethod
+#     def display3(self):
+#         pass
+#
+#
+# class Student(Human):  # Наследование от класса человек!
+#
+#     def display1(self):
+#         print(f"Загидулин Линар 32 РПО PD_011 5\nШугани Сергей 15 РПО PD_011 5 Защита данных")
+#
+#
+# class Teacher(Human):  # Наследование от класса человек!
+#
+#     def display2(self):
+#         print(f"Даньшин Андрей 38 Астрофизика 110\n Башкиров Алексей 45 Разработка приложений 20")
+#
+#
+# class Graduate(Student):  # Наследование от класса студент!
+#
+#     def display3(self):
+#         print(f"Батодалаев Даши 16 ГК Web_011 5\nМаркин Даниил ГК Python_011 5")
+
+# print("\nЗадание №21")
+# # # Задание №21
+
+class Student:
+    def __init__(self, name1, name2):
+        self.name1 = name1
+        self.name2 = name2
+        self.m = self.Model()
+        self.p = self.Processor()
+        self.me = self.Memory()
+
+    # @property
+    # def name1(self):
+    #     return self.name1
+    #
+    # @name1.setter
+    # def name1(self, name1):
+    #     if not isinstance(name1, str):
+    #         raise TypeError("Не строка!")
+    #     else:
+    #         self.name1 = name1
+    #
+    # @property
+    # def name2(self):
+    #     return self.name2
+    #
+    # @name2.setter
+    # def name2(self, name2):
+    #     if not isinstance(name2, str):
+    #         raise TypeError("Не строка!")
+    #     else:
+    #         self.name2 = name2
+
+    def __str__(self):
+        print(f"{self.name1} => {self.m}, {self.p}, {self.me}\n"
+              f"{self.name2} => {self.m}, {self.p}, {self.me}")
+
+    def print_info(self):
+        print(f"{self.name1} => {self.m}, {self.p}, {self.me}\n"
+              f"{self.name2} => {self.m}, {self.p}, {self.me}")
+
+    class Model:
+        model = 'HP'
+
+        def __str__(self):
+            return self.model
+
+    class Processor:
+        processor = 'i7'
+
+        def __str__(self):
+            return self.processor
+
+    class Memory:
+        memory = "16"
+
+        def __str__(self):
+            return self.memory
+
+        # @property
+        # def model(self):
+        #     return self.model
+        #
+        # @model.setter
+        # def model(self, model):
+        #     if not isinstance(model, str):
+        #         raise TypeError("Не строка!")
+        #     else:
+        #         self.model = model
+        #
+        # @property
+        # def processor(self):
+        #     return self.model
+        #
+        # @processor.setter
+        # def processor(self, processor):
+        #     if not isinstance(processor, str):
+        #         raise TypeError("Не строка!")
+        #     else:
+        #         self.processor = processor
+        #
+        # @property
+        # def memory(self):
+        #     return self.model
+        #
+        # @memory.setter
+        # def memory(self, memory):
+        #     if not isinstance(memory, str):
+        #         raise TypeError("Не строка!")
+        #     else:
+        #         self.memory = memory  # Через p #
 
 
-class Human(ABC):
-
-    @abstractmethod
-    def display1(self):
-        pass
-
-    @abstractmethod
-    def display2(self):
-        pass
-
-    @abstractmethod
-    def display3(self):
-        pass
-
-
-class Student(Human):  # Наследование от класса человек!
-
-    def display1(self):
-        print(f"Загидулин Линар 32 РПО PD_011 5\nШугани Сергей 15 РПО PD_011 5 Защита данных")
-
-
-class Teacher(Human):  # Наследование от класса человек!
-
-    def display2(self):
-        print(f"Даньшин Андрей 38 Астрофизика 110\n Башкиров Алексей 45 Разработка приложений 20")
-
-
-class Graduate(Student):  # Наследование от класса студент!
-
-    def display3(self):
-        print(f"Батодалаев Даши 16 ГК Web_011 5\nМаркин Даниил ГК Python_011 5")
-
-
-
+one = Student('Лёша', 'Настя')
+one.print_info()
