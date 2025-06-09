@@ -928,17 +928,69 @@
 # else:
 #     print("Время одинаковое")
 
-# Занятие 23
+# # Занятие 23
+#
+#
+# from ElectroCar import Car
+#
+#
+# # Дочерний класс
+#
+# class ElCar(Car.Car):
+#     pass
+#
+#
+# car1 = ElCar("Tesla", "T", "2018", "99000", "100")
+# print(car1.info())
+
+# Занятие 24
+
+import json
+from random import choice  # Выбор одного элемента из списка
 
 
-from ElectroCar import Car
+def gen_person():
+    name = ' '
+    tel = ' '
+
+    letters = ['a', 'b', 'c', 'd', 'f', 'g', 'h', 'e', 'k', 'l', 'm', 'n']
+    num = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+
+    while len(name) != 7:
+        name += choice(letters)
+
+    while len(tel) != 10:
+        tel += choice(num)
+
+    person = {
+        'name': name,
+        'tel': tel
+    }
+
+    return person
 
 
-# Дочерний класс
+def func():  # Функция создание рандомного ключа
+    num1 = ' '
+    num2 = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+    while len(num1) != 14:
+        num1 += choice(num2)
+    return num1
 
-class ElCar(Car.Car):
-    pass
+
+def write_json(person_dict):  # Добавление словарей в словарь
+    try:
+        data = json.load(open('person.json'))  # Откроет + считает файл
+    except FileNotFoundError:
+        data = {}
+
+    data.update({func(): person_dict})  # Добавление на один словарь
+    with open('person.json', 'w') as f:
+        json.dump(data, f, indent=6)
 
 
-car1 = ElCar("Tesla", "T", "2018", "99000", "100")
-print(car1.info())
+# lst = {func(): gen_person() for i in range(5)}
+# for i in range(5):
+#     print(gen_person())
+for i in range(5):
+    write_json(gen_person())
