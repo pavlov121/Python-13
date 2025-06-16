@@ -32,6 +32,8 @@
 #         print(num1, "копеек")
 # else:
 #     print("Число нецелое или не входит в диапазон!")
+from dataclasses import field
+from fileinput import filename
 
 # print("\nЗадание №3")
 # # Задание №3(Использовал исключение!)
@@ -943,54 +945,86 @@
 # car1 = ElCar("Tesla", "T", "2018", "99000", "100")
 # print(car1.info())
 
-# Занятие 24
-
-import json
-from random import choice  # Выбор одного элемента из списка
-
-
-def gen_person():
-    name = ' '
-    tel = ' '
-
-    letters = ['a', 'b', 'c', 'd', 'f', 'g', 'h', 'e', 'k', 'l', 'm', 'n']
-    num = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
-
-    while len(name) != 7:
-        name += choice(letters)
-
-    while len(tel) != 10:
-        tel += choice(num)
-
-    person = {
-        'name': name,
-        'tel': tel
-    }
-
-    return person
-
-
-def func():  # Функция создание рандомного ключа
-    num1 = ' '
-    num2 = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
-    while len(num1) != 14:
-        num1 += choice(num2)
-    return num1
-
-
-def write_json(person_dict):  # Добавление словарей в словарь
-    try:
-        data = json.load(open('person.json'))  # Откроет + считает файл
-    except FileNotFoundError:
-        data = {}
-
-    data.update({func(): person_dict})  # Добавление на один словарь
-    with open('person.json', 'w') as f:
-        json.dump(data, f, indent=6)
-
-
-# lst = {func(): gen_person() for i in range(5)}
+# # Занятие 24
+#
+# import json
+# from random import choice  # Выбор одного элемента из списка
+#
+#
+# def gen_person():
+#     name = ' '
+#     tel = ' '
+#
+#     letters = ['a', 'b', 'c', 'd', 'f', 'g', 'h', 'e', 'k', 'l', 'm', 'n']
+#     num = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+#
+#     while len(name) != 7:
+#         name += choice(letters)
+#
+#     while len(tel) != 10:
+#         tel += choice(num)
+#
+#     person = {
+#         'name': name,
+#         'tel': tel
+#     }
+#
+#     return person
+#
+#
+# def func():  # Функция создание рандомного ключа
+#     num1 = ' '
+#     num2 = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+#     while len(num1) != 14:
+#         num1 += choice(num2)
+#     return num1
+#
+#
+# def write_json(person_dict):  # Добавление словарей в словарь
+#     try:
+#         data = json.load(open('person.json'))  # Откроет + считает файл
+#     except FileNotFoundError:
+#         data = {}
+#
+#     data.update({func(): person_dict})  # Добавление на один словарь
+#     with open('person.json', 'w') as f:
+#         json.dump(data, f, indent=6)
+#
+#
+# # lst = {func(): gen_person() for i in range(5)}
+# # for i in range(5):
+# #     print(gen_person())
 # for i in range(5):
-#     print(gen_person())
-for i in range(5):
-    write_json(gen_person())
+#     write_json(gen_person())
+
+# Занятие 25
+
+import requests
+import json
+import csv
+
+response = requests.get("https://jsonplaceholder.typicode.com/todos")  # На получение файла
+todos = json.loads(response.text)
+print(todos)
+
+dict_values = []
+for i in todos:
+    dict_values.append(i.values())
+print(dict_values)
+a = []
+for row in todos:
+    b = list(row.values())
+    a.append(b)
+
+print(a)
+with open("ДЗ25.csv", "w") as f:  # Создание и запись данных в формате csv
+    # shapka = ["userId", "id", "title", "completed"]
+    write = csv.writer(f, delimiter=";", lineterminator="\r")
+    for i in a:
+        write.writerow(i)
+    # write.writerows(a)
+
+
+
+
+
