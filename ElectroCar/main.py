@@ -997,34 +997,42 @@ from fileinput import filename
 # for i in range(5):
 #     write_json(gen_person())
 
-# Занятие 25
+# # Занятие 25
+#
+# import requests
+# import json
+# import csv
+#
+# response = requests.get("https://jsonplaceholder.typicode.com/todos")  # На получение файла
+# todos = json.loads(response.text)
+# print(todos)
+#
+# dict_values = []
+# for i in todos:
+#     dict_values.append(i.values())
+# print(dict_values)
+# a = []
+# for row in todos:
+#     b = list(row.values())
+#     a.append(b)
+#
+# print(a)
+# with open("ДЗ25.csv", "w") as f:  # Создание и запись данных в формате csv
+#     # shapka = ["userId", "id", "title", "completed"]
+#     write = csv.writer(f, delimiter=";", lineterminator="\r")
+#     for i in a:
+#         write.writerow(i)
+#     write.writerows(a)
 
-import requests
-import json
-import csv
+# Занятие 26
 
-response = requests.get("https://jsonplaceholder.typicode.com/todos")  # На получение файла
-todos = json.loads(response.text)
-print(todos)
-
-dict_values = []
-for i in todos:
-    dict_values.append(i.values())
-print(dict_values)
-a = []
-for row in todos:
-    b = list(row.values())
-    a.append(b)
-
-print(a)
-with open("ДЗ25.csv", "w") as f:  # Создание и запись данных в формате csv
-    # shapka = ["userId", "id", "title", "completed"]
-    write = csv.writer(f, delimiter=";", lineterminator="\r")
-    for i in a:
-        write.writerow(i)
-    # write.writerows(a)
+from parser import Parser
 
 
+def main():
+    pars = Parser("https://www.geeksforgeeks.org/python/convert-csv-to-excel-using-pandas-in-python/", "My.txt")
+    pars.run()
 
 
-
+if __name__ == "__main__":
+    main()
