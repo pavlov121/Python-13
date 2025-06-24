@@ -1024,15 +1024,19 @@ from fileinput import filename
 #         write.writerow(i)
 #     write.writerows(a)
 
-# Занятие 26
+# # Занятие 26
+#
+# from parser import Parser
+#
+#
+# def main():
+#     pars = Parser("https://www.geeksforgeeks.org/python/convert-csv-to-excel-using-pandas-in-python/", "My.txt")
+#     pars.run()
+#
+#
+# if __name__ == "__main__":
+#     main()
 
-from parser import Parser
+# Занятие 27
 
 
-def main():
-    pars = Parser("https://www.geeksforgeeks.org/python/convert-csv-to-excel-using-pandas-in-python/", "My.txt")
-    pars.run()
-
-
-if __name__ == "__main__":
-    main()
