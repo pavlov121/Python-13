@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+    {% from 'macro.html' import go as mac %}
+    {{ mac("text", "firstname", "Имя") }}
+    {{ mac("text", "lastname", "Фамилия") }}
+    {{ mac("text", "address", "Адрес") }}
+    {{ mac("tel", "phone", "Телефон") }}
+    {{ mac("email", "email", "Почта") }}
+
+</body>
+</html>
