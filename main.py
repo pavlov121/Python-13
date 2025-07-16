@@ -1073,19 +1073,31 @@ from fileinput import filename
 #        ) """)
 
 # Занятие №33
-from jinja2 import Environment, FileSystemLoader
+# from jinja2 import Environment, FileSystemLoader
+#
+# persons = [
+#     {'type': 'text', 'name': 'firstname', 'placeholder': 'Имя'},
+#     {'type': 'text', 'name': 'lastname', 'placeholder': 'Фамилия'},
+#     {'type': 'text', 'name': 'address', 'placeholder': 'Адрес'},
+#     {'type': 'tel', 'name': 'phone', 'placeholder': 'Телефон'},
+#     {'type': 'email', 'name': 'email', 'placeholder': 'Почта'},
+#
+# ]
+# file_loader = FileSystemLoader('home_work')  # В какой папке
+# env = Environment(loader=file_loader)
+#
+# tm = env.get_template('home2.html')
+# msg = tm.render(users=persons, title="Macro")
+# print(msg)
 
-persons = [
-    {'type': 'text', 'name': 'firstname', 'placeholder': 'Имя'},
-    {'type': 'text', 'name': 'lastname', 'placeholder': 'Фамилия'},
-    {'type': 'text', 'name': 'address', 'placeholder': 'Адрес'},
-    {'type': 'tel', 'name': 'phone', 'placeholder': 'Телефон'},
-    {'type': 'email', 'name': 'email', 'placeholder': 'Почта'},
+# Занятие №34
 
-]
-file_loader = FileSystemLoader('home_work')  # В какой папке
-env = Environment(loader=file_loader)
+import os
 
-tm = env.get_template('home2.html')
-msg = tm.render(users=persons, title="Macro")
-print(msg)
+from models.database import DATABASE_NAME
+import models.create_database as db_creator
+
+if __name__ == '__main__':
+    db_is_creator = os.path.exists(DATABASE_NAME)
+    if not db_is_creator:
+        db_creator.create_database()
