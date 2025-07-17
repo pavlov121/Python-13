@@ -1091,13 +1091,13 @@ from fileinput import filename
 # print(msg)
 
 # Занятие №34
-
-import os
-
-from models.database import DATABASE_NAME
-import models.create_database as db_creator
-
-if __name__ == '__main__':
-    db_is_creator = os.path.exists(DATABASE_NAME)
-    if not db_is_creator:
-        db_creator.create_database()
+#
+# import os
+#
+# from models.database import DATABASE_NAME
+# import models.create_database as db_creator
+#
+# if __name__ == '__main__':
+#     db_is_creator = os.path.exists(DATABASE_NAME)
+#     if not db_is_creator:
+#         db_creator.create_database()
